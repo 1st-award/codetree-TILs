@@ -1,10 +1,13 @@
 def solution(num_str):
     bin_pos = 1
     bin_sum = 0
-    for idx in range(1, len(num_str)):
-        if num_str[idx] == "0":
-            num_str[idx] = "1"
-            break
+    if num_str.count("0") == 0:
+        num_str[-1] = "0"
+    else:
+        for idx in range(1, len(num_str)):
+            if num_str[idx] == "0":
+                num_str[idx] = "1"
+                break
 
     num_str.reverse()
     for ch in num_str:

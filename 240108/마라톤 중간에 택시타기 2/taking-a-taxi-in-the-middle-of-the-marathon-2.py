@@ -1,6 +1,6 @@
 def solution(N, cp_list):
     distance_list = []
-    for idx in range(N-1):
+    for idx in range(N-2):
         distance = abs(cp_list[idx][0] - cp_list[idx+1][0]) + abs(cp_list[idx][1] - cp_list[idx+1][1])
         distance_list.append(distance)
     longest_distance_idx = distance_list.index(max(distance_list)) + 1

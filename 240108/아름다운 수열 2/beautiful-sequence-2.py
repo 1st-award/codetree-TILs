@@ -1,13 +1,8 @@
 def solution(N, M, A, B):
     count = 0
     for i in range(N - M + 1):
-        skip = False
         search = A[i: i+M]
-        for ch in set(B):
-            if search.count(ch) == 0:
-                skip = True
-                break
-        if not skip:
+        if set(search) == set(B):
             count += 1
     return count
 

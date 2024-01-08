@@ -2,7 +2,12 @@ def solution(N, M, A, B):
     count = 0
     for i in range(N - M + 1):
         search = A[i: i+M]
-        if set(search) == set(B):
+        temp_B = B.copy()
+        for ch in search:
+            if ch not in temp_B:
+                break
+            temp_B.remove(ch)
+        if len(temp_B) == 0:
             count += 1
     return count
 

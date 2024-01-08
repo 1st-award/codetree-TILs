@@ -2,14 +2,14 @@ def soltuion(board):
     N = 19
     # 가로
     for y in range(N):
-        for x in range(N - 5):
+        for x in range(N - 4):
             search = board[y][x: x + 5]
             if search.count(1) == 5:
                 return 1, y + 1, x + 3
             if search.count(2) == 5:
                 return 2, y + 1, x + 3
     # 세로
-    for y in range(N - 5):
+    for y in range(N - 4):
         for x in range(N):
             search = [board[y][x], board[y+1][x], board[y+2][x], board[y+3][x], board[y+4][x]]
             if search.count(1) == 5:

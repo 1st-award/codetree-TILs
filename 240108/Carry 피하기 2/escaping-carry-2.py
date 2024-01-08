@@ -24,6 +24,8 @@ def solution(N, num_list):
                 if not carray:
                     temp_sum = num_list[i] + num_list[j] + num_list[k]
                     max_num = max(max_num, temp_sum)
+    if max_num == MIN_NUM:
+        return -1
     return max_num
 
 

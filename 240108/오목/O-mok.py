@@ -25,13 +25,13 @@ def soltuion(board):
             if search.count(2) == 5:
                 return 2, y + 3, x + 3
     # 대각선 /
-    for y in range(N, 3, -1):
+    for y in range(N - 1, 3, -1):
         for x in range(N - 4):
-            search = [board[y][x], board[y-1][x+1],board[y-2][x+2], board[y-3][x+3], board[y-4][x+4]]
+            search = [board[y][x], board[y-1][x+1], board[y-2][x+2], board[y-3][x+3], board[y-4][x+4]]
             if search.count(1) == 5:
-                return 1, y - 2, x + 3
+                return 1, y - 1, x + 3
             if search.count(2) == 5:
-                return 2, y - 2, x + 3
+                return 2, y - 1, x + 3
 
 board = [list(map(int, input().split())) for _ in range(19)]
 win, y, x = soltuion(board)

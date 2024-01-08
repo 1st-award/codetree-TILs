@@ -32,7 +32,7 @@ def soltuion(board):
                 return 1, y - 1, x + 3
             if search.count(2) == 5:
                 return 2, y - 1, x + 3
-
+    return 0, 0, 0
 board = [list(map(int, input().split())) for _ in range(19)]
 win, y, x = soltuion(board)
 print(win)

@@ -5,7 +5,7 @@ def solution(N, sign):
             if sign[start] == 0 or sign[end] == 0:
                 continue
 
-            search = sign[start : start + end]
+            search = sign[start : end + 1]
             G_cnt = search.count("G")
             H_cnt = search.count("H")
             if G_cnt == 0 or H_cnt == 0 or G_cnt == H_cnt:

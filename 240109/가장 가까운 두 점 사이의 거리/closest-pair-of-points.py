@@ -9,7 +9,7 @@ def solution(N, points):
                 continue
             ax, ay = points[i]
             bx, by = points[j]
-            distance = abs(ax - bx) ** 2 + abs(ay - by)
+            distance = abs(ax - bx) ** 2 + abs(ay - by) ** 2
             min_distance = min(min_distance, distance)
     return min_distance
 

@@ -17,7 +17,7 @@ def solution(N, sign):
 
 
 N = int(input())
-sign = [None] * 100
+sign = [None] * 101
 for idx, ch in list(input().split() for _ in range(N)):
     sign[int(idx)] = ch
 sign.reverse()

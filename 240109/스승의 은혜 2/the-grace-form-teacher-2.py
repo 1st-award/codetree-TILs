@@ -18,4 +18,5 @@ def solution(N, B, prices):
 
 N, B = map(int, input().split())
 prices = [int(input()) for _ in range(N)]
+prices.sort()
 print(solution(N, B, prices))

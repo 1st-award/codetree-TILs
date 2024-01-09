@@ -3,6 +3,8 @@ def solution(N, numbers):
     for a in range(1, 10):
         for b in range(1, 10):
             for c in range(1, 10):
+                if a == b or a == c or b == c:
+                    continue
                 temp_numbers = [a, b, c]
                 all_satisfaction = True
                 for num, condition1, condition2 in numbers:
@@ -17,7 +19,7 @@ def solution(N, numbers):
                                     con_2_cnt += 1
                     if con_1_cnt != condition1 or con_2_cnt != condition2:
                         all_satisfaction = False
-                        break
+
                 if all_satisfaction:
                     count += 1
     return count

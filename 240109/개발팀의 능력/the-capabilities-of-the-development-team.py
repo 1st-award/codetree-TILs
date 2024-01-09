@@ -23,6 +23,8 @@ def solution(ablity_list):
                     max_ablity_group = max(group1, group2, group3)
                     min_diff_group = min(min_diff_group, max_ablity_group - min_ablity_group)                    
                     # print(max_ablity_group, min_ablity_group, min_diff_group)
+    if max_ablity_group == MAX_NUM:
+        return -1
     return min_diff_group
 
 

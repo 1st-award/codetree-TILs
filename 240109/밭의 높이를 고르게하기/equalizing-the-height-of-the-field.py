@@ -9,6 +9,6 @@ def solution(N, T, H, field):
             min_try = min(min_try, temp_try)
     return min_try
 
-N, T, H = map(int, input().split())
+N, H, T = map(int, input().split())
 field = list(map(int, input().split()))
 print(solution(N, T, H, field))

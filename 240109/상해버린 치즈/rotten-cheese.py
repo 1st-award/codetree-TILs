@@ -21,6 +21,7 @@ def solution(N, M, D, S, eat_log, hit_log):
         if predict_bad_cheeses.count(bad_cheese) >= len(hit_p_list):
             temp_bad_cheese.append(bad_cheese)
     predict_bad_cheeses = list(set(temp_bad_cheese))
+    # print(predict_bad_cheeses)
     for bad_cheese in predict_bad_cheeses:
         temp_eat_p_list = []
         # all_eat_cheese = True
@@ -33,7 +34,7 @@ def solution(N, M, D, S, eat_log, hit_log):
         #         break
         # if all_eat_cheese:
             # print(bad_cheese, hit_p_list, temp_eat_p_list)
-        max_predict = max(max_predict, len(temp_eat_p_list))
+        max_predict = max(max_predict, len(list(set(temp_eat_p_list))))
     return max_predict
 
 

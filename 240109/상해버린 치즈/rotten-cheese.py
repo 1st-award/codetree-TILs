@@ -9,34 +9,37 @@ def solution(N, M, D, S, eat_log, hit_log):
     max_predict = 0
     hit_p_list = []
     predict_bad_cheeses = []
-    latest_hit_t = hit_log[0][1]
+    # latest_hit_t = hit_log[0][1]
     for hit_p, hit_t in hit_log:
         hit_p_list.append(hit_p)
         for eat_p, eat_m, eat_t in eat_log:
             if hit_p == eat_p and hit_t > eat_t:
                 predict_bad_cheeses.append(eat_m)
     
-    predict_bad_cheeses = list(set(predict_bad_cheeses))
-    # print(predict_bad_cheeses)
+    temp_bad_cheese = []
+    for bad_cheese in predict_bad_cheeses:
+        if predict_bad_cheeses.count(bad_cheese) >= len(hit_p_list):
+            temp_bad_cheese.append(bad_cheese)
+    predict_bad_cheeses = list(set(temp_bad_cheese))
     for bad_cheese in predict_bad_cheeses:
         temp_eat_p_list = []
-        all_eat_cheese = True
+        # all_eat_cheese = True
         for eat_p, eat_m, eat_t in eat_log:
-            if eat_m == bad_cheese and eat_t < latest_hit_t:
+            if eat_m == bad_cheese:
                 temp_eat_p_list.append(eat_p)
-        for eat_p in hit_p_list:
-            if eat_p not in temp_eat_p_list:
-                all_eat_cheese = False
-                break
-        if all_eat_cheese:
+        # for eat_p in hit_p_list:
+        #     if eat_p not in temp_eat_p_list:
+        #         all_eat_cheese = False
+        #         break
+        # if all_eat_cheese:
             # print(bad_cheese, hit_p_list, temp_eat_p_list)
-            max_predict = max(max_predict, len(temp_eat_p_list))
+        max_predict = max(max_predict, len(temp_eat_p_list))
     return max_predict
 
 
 N, M, D, S = map(int, input().split())
 eat_log = [tuple(map(int, input().split())) for _ in range(D)]
 hit_log = [tuple(map(int, input().split())) for _ in range(S)]
-hit_log.sort(key=lambda x: x[-1], reverse=True)
+# hit_log.sort(key=lambda x: x[-1], reverse=True)
 # print(hit_log)
 print(solution(N, M, D, S, eat_log, hit_log))

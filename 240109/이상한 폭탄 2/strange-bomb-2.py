@@ -3,12 +3,19 @@
 # count로 특정 폭탄 번호 갯수 확인하여 2개 이상이면 max_bomb_no에 저장
 def solution(N, K, bomb_list):
     max_bomb_no = -1
+    if len(bomb_list) == K:
+        for bomb in list(set(bomb_list)):
+            if bomb_list.count(bomb) > 1:
+                max_bomb_no = max(max_bomb_no, bomb)
+        return max_bomb_no
+
     for pos in range(len(bomb_list) - K):
         bombs = bomb_list[pos: pos + K + 1]
         # print(bombs)
         for bomb in list(set(bombs)):
             if bombs.count(bomb) > 1:
                 max_bomb_no = max(max_bomb_no, bomb)
+    
     return max_bomb_no
         
 

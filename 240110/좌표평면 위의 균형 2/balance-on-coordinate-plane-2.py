@@ -14,8 +14,8 @@ def solution(N, lines):
 
     best_diff = 101
     best_point = 101
-    for ly in range(my):
-        for lx in range(mx):
+    for ly in range(0, my, 2):
+        for lx in range(0, mx, 2):
             # 1 사분면 lx < px, ly < py
             quantum_1 = 0
             for ly1 in range(ly + 1, my):
@@ -40,16 +40,11 @@ def solution(N, lines):
                 for lx1 in range(lx + 1, mx):
                     if board[ly1][lx1] == 1:
                         quantum_4 += 1
-            # print(quantum_1, quantum_2, quantum_3, quantum_4)
-            # print (sum_quantum, len(lines))
             sum_quantum = quantum_1 + quantum_2 + quantum_3 + quantum_4
             if sum_quantum == len(lines):
                 min_quantum = min(quantum_1, quantum_2, quantum_3, quantum_4)
                 max_quantum = max(quantum_1, quantum_2, quantum_3, quantum_4)
-                diff_quantum = max_quantum - min_quantum
-                if best_diff >= diff_quantum:
-                    best_diff = diff_quantum
-                    best_point = max_quantum
+                best_point = min(best_point, max_quantum)
     return best_point    
 
 

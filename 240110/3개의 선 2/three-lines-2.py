@@ -1,22 +1,33 @@
-# x가 겹치는 좌표 제거
-# y가 겹치는 좌표 제거
-# 남은 좌표가 1개면 가능, 1개 초과면 물가능
+# 
 def solution(N, point_list):
-    x_list = []
-    y_list = []
+    xs, xm = 0, 0
+    ys, ym = 0, 0
     for x, y in point_list:
-        x_list.append(x)
-        y_list.append(y)
+        xs = min(xs, x + 1)
+        xm = max(xm, x + 1)
+        ys = min(ys, y + 1)
+        ym = max(ym, y + 1)
+    
+    max_board = max(xm, ym)
+    board = [[0] * max_board for _ in range(max_board)]
+    for x, y in point_list:
+        board[y][x] = 1
+    
+    count = 0
+    for n in range(xs, ym):
+        x_line_points = board[n]
+        y_line_points = []
+        for b in board:
+            y_line_points.append(b[n])
+        if x_line_points.count(1) > 1 or y_line_points.count(1) > 1:
+            count += 1
 
-    remove_idx_list = []
-    for idx in range(N):
-        if x_list.count(x) > 1 or y_list.count(y) > 1:
-            remove_idx_list.append(idx)
-
-    if len(point_list) - len(remove_idx_list) > 1 and len(point_list) > 3:
+    if count > 3:
         return 0
     else:
         return 1
+    
+    
 
 N = int(input())
 point_list = [tuple(map(int, input().split())) for _ in range(N)]

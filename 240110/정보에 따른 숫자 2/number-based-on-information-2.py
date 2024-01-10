@@ -4,9 +4,9 @@
 def solution(T, a, b, board):
     count = 0
     for target in range(a, b + 1):
-        close_S_pos = 101
-        close_N_pos = 101
-        for pos in range(101):
+        close_S_pos = 1001
+        close_N_pos = 1001
+        for pos in range(1001):
             ch = board[pos]
             if ch == "S":
                 close_S_pos = min(close_S_pos, abs(target - pos))
@@ -21,7 +21,7 @@ def solution(T, a, b, board):
 
 
 T, a, b = map(int, input().split())
-board = [None] * 101
+board = [None] * 1001
 for ch, pos in list(input().split() for _ in range(T)):
     board[int(pos)] = ch
 # print(board)

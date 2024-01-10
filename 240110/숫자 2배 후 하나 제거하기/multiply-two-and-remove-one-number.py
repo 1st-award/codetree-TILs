@@ -9,12 +9,10 @@ def solution(N, numbers):
     for i in range(N):
         numbers[i] *= 2
         for j in range(N):
-            if i == j:
-                break
             temp_numbers = [numbers[n] for n in range(N) if j != n]
             diff_count = 0
             for k in range(N - 2):
-                diff_count += abs(temp_numbers[k] - temp_numbers[k+1])
+                diff_count += abs(temp_numbers[k] - temp_numbers[k+1])        
             min_diff = min(min_diff, diff_count)
         numbers[i] //= 2
     return min_diff

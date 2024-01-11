@@ -3,9 +3,7 @@ def solution(N, K, numbers):
     for i in range(N):
         temp_cnt = 0
         for j in range(N):
-            if i == j:
-                continue
-            if abs(numbers[i] - numbers[j]) <= 3:
+            if abs(numbers[i] - numbers[j]) <= K:
                 temp_cnt += 1
         cnt = max(cnt, temp_cnt)
     return cnt

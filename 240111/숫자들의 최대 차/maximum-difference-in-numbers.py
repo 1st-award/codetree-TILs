@@ -1,14 +1,19 @@
 def solution(N, K, numbers):
     cnt = 0
-    for i in range(N):
-        temp_cnt = 0
-        for j in range(N):
-            if abs(numbers[i] - numbers[j]) <= K:
-                temp_cnt += 1
-        cnt = max(cnt, temp_cnt)
+    for n in list(set(numbers)):
+        temp_list = []
+        for num in numbers:
+            if abs(n-num) <= K:
+                temp_list.append(num)
+
+        if max(temp_list) - min(temp_list) <= K:
+            # print(n, temp_list)
+            cnt = max(cnt, len(temp_list))
     return cnt
+   
 
 
 N, K = map(int, input().split())
 numbers = [int(input()) for _ in range(N)]
+numbers.sort()
 print(solution(N, K, numbers))

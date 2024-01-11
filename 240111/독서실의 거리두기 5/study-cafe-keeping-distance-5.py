@@ -43,6 +43,15 @@ def solution(N, seats):
         best_diff = max(best_diff, len(last_available_seat) - 1)
         if best_diff == len(last_available_seat) - 1:
             best_diff_pos = len(available_positions) - 1, len(last_available_seat) - 1
+
+    first_available_seat = available_positions[0]
+    if first_available_seat.count(0) > 1 and first_available_seat.count(1) == 1:
+        # print(last_available_seat)
+        # print(best_diff, len(last_available_seat))
+        best_diff = max(best_diff, len(first_available_seat) - 1)
+        if best_diff == len(first_available_seat) - 1:
+            best_diff_pos = 0, 0
+            
     # print(available_positions)
     y, x = best_diff_pos
     available_positions[y][x] = 1

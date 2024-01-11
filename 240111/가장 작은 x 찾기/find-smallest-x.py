@@ -1,5 +1,5 @@
 def solution(N, range_list):
-    for n in range(range_list[0][0], range_list[-1][1]):
+    for n in range(1, range_list[-1][1]):
         temp = n
         is_pass = True
         for x, y in range_list:

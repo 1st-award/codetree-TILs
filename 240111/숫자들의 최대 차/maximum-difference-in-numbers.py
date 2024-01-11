@@ -1,14 +1,13 @@
 def solution(N, K, numbers):
     cnt = 0
-    for n in list(set(numbers)):
-        temp_list = []
-        for num in numbers:
-            if abs(n-num) <= K:
-                temp_list.append(num)
-
-        if max(temp_list) - min(temp_list) <= K:
-            # print(n, temp_list)
-            cnt = max(cnt, len(temp_list))
+    for x in list(set(numbers)):
+        for y in list(set(numbers)):
+            temp_list = []
+            if y - x <= K:
+                for n in numbers:
+                    if x <= n <= y:
+                        temp_list.append(n)
+                cnt = max(cnt, len(temp_list))
     return cnt
    
 

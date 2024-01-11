@@ -1,24 +1,17 @@
-def solution(arr):
-    for a in range(len(arr)):
-        for b in range(len(arr)):
-            for c in range(len(arr)):
-                for d in range(len(arr)):
-                    if arr[a] <= arr[b] <= arr[c] <= arr[d]:
-                        if arr[a] + arr[b] in arr and\
-                        arr[b] + arr[c] in arr and\
-                        arr[c] + arr[d] in arr and\
-                        arr[d] + arr[a] in arr and\
-                        arr[a] + arr[c] in arr and\
-                        arr[b] + arr[d] in arr and\
-                        arr[a] + arr[b] + arr[c] in arr and\
-                        arr[a] + arr[b] + arr[d] in arr and\
-                        arr[a] + arr[c] + arr[d] in arr and\
-                        arr[b] + arr[c] + arr[d] in arr and\
-                        arr[a] + arr[b] + arr[c] + arr[d] in arr:
-                            print(arr[a], arr[b], arr[c], arr[d])
+def solution(numbers):
+    for a in range(1, 41):
+        for b in range(a, 41):
+            for c in range(b, 41):
+                for d in range(c, 41):
+                    arr2 = [a, b, c, d, a + b, b + c, c + d, d + a,
+                    a + c, b + d, a + b + c, a + b + d, a + c + d, b + c + d,
+                    a + b + c + d]
+                    if numbers == sorted(arr2):
+                        print(a, b, c, d)
+                        return
+                        
 
 
-numbers = list(set(map(int, input().split())))
-arr = list(set(numbers))
-arr.sort()
-solution(arr)
+numbers = list(map(int, input().split()))
+numbers.sort()
+solution(numbers)

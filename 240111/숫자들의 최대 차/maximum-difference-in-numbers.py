@@ -1,14 +1,14 @@
 def solution(N, K, numbers):
-    cnt = 0
-    for x in list(set(numbers)):
-        for y in list(set(numbers)):
-            temp_list = []
-            if y - x <= K:
-                for n in numbers:
-                    if x <= n <= y:
-                        temp_list.append(n)
-                cnt = max(cnt, len(temp_list))
-    return cnt
+    max_num = max(numbers)
+    best_length = 0
+    for i in range(1, max_num + 1):
+        cnt = 0
+        for num in numbers:
+            if i <= num <= i + K:
+                cnt += 1
+        best_length = max(best_length, cnt)
+    return best_length
+
    
 
 

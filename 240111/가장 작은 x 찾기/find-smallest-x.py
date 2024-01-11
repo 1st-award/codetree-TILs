@@ -15,5 +15,5 @@ def solution(N, range_list):
 
 N = int(input())
 range_list = [tuple(map(int, input().split())) for _ in range(N)]
-range_list.sort(key=lambda x: x[0])
+# range_list.sort(key=lambda x: x[0])
 print(solution(N, range_list))

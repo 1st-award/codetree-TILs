@@ -16,14 +16,14 @@ public class Main {
         String sitNumbers = br.readLine();
         int[] sitNums = str2IntArray(sitNumbers);
 
-        int maxDistance = N;
+        int maxDistance = -1;
         boolean bTouch = false;
         for (int i = 0; i < N - 1; ++i) {
             for (int j = i + 1; j < N; ++j) {
                 if (sitNums[i] == 1 || sitNums[j] == 1) continue;
                 bTouch = true;
                 sitNums[i] = 1; sitNums[j] = 1;
-                maxDistance = Math.min(maxDistance, calcMaxDistance(sitNums));
+                maxDistance = Math.max(maxDistance, calcMinDistance(sitNums));
                 sitNums[i] = 0; sitNums[j] = 0;
             }
         }
@@ -44,18 +44,18 @@ public class Main {
         return nums;
     }
 
-    private static int calcMaxDistance(int[] _sitNums) {
+    private static int calcMinDistance(int[] _sitNums) {
         int idx1 = -1; int idx2 = -1;
-        int maxDistance = -1;
+        int mindistance = _sitNums.length;
         for(int i = 0; i < _sitNums.length; ++i) {
             if (_sitNums[i] == 0) continue;
             else if (idx1 == -1) idx1 = i;
             else {
                 idx2 = i;
-                maxDistance = Math.max(maxDistance, idx2 - idx1);
+                mindistance = Math.min(mindistance, idx2 - idx1);
                 idx1 = idx2;
             }
         }
-        return maxDistance;
+        return mindistance;
     }
 }

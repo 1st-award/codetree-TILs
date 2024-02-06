@@ -28,7 +28,7 @@ public class Main {
         for (int i = start; i < end; ++ i) {
             nums = str2IntArr(String.valueOf(i));
             set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
-            if (isCorrect(nums, result, N) && set.size() == N) {
+            if (isCorrect(nums, result, N) && set.size() == N && !set.contains(0)) {
                 for (int num : nums) System.out.print(num + " ");
                 break;
             }

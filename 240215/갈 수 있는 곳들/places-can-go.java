@@ -41,21 +41,19 @@ public class Main {
         }
 
 
-        Set<Integer> visitCountSet = new HashSet<>();
+        visited = new boolean[n + 1][n + 1];
         for (Pointer sp : startPoint) {
             queue.clear();
-            visited = new boolean[n + 1][n + 1];
-            visitCount = 1;
-
-            queue.add(sp);
-            visited[sp.x][sp.y] = true;
-            BFS(sp.x, sp.y);
+            if (visited[sp.x][sp.y] == false) {
+                visitCount += 1;
+                queue.add(sp);
+                visited[sp.x][sp.y] = true;
+                BFS(sp.x, sp.y);
+            }
             // System.out.println(visitCount);
-            visitCountSet.add(visitCount);
         }
 
-        int visitCountSum = visitCountSet.stream().mapToInt(Integer::intValue).sum();
-        System.out.println(visitCountSum);
+        System.out.println(visitCount);
     }
 
     private static boolean isOutOfRange (int x, int y) {
@@ -91,9 +89,9 @@ public class Main {
 
                 if (canGo(newX, newY)) {
                     // System.out.println(newX + " " + newY);
-                    // System.out.println(visitCount);
                     visited[newX][newY] = true;
                     visitCount += 1;
+                    // System.out.println(visitCount);
                     queue.add(new Pointer(newX, newY));
                 }
             }

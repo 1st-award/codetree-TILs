@@ -43,7 +43,7 @@ public class Main {
     }
 
     private static boolean isOutOfRange(int x, int y) {
-        return 0 > x || 0 > y || n <= x || n <= y;
+        return 0 > x || 0 > y || n <= x || m <= y;
     }
 
     private static boolean canGo(int x, int y) {

@@ -24,7 +24,7 @@ public class Main {
             }
         }
 
-        int maxBlockNumer = 0;
+        int removeBlockCount = 0;
         int maxRemoveBlock = 0;
         for (int k = 1; k <= maxK; ++k) {
             visited = new boolean[n][n];
@@ -39,13 +39,13 @@ public class Main {
                             maxRemoveBlock = tempRemoveBlock;
                         }
                         if (tempRemoveBlock >= 4) {
-                            maxBlockNumer = k;
+                            removeBlockCount += 1;
                         }
                     }
                 }
             }
         }
-        System.out.println(maxBlockNumer + " " + maxRemoveBlock);
+        System.out.println(removeBlockCount + " " + maxRemoveBlock);
     }
 
     private static boolean isOutOfRange(int x, int y) {

@@ -42,8 +42,8 @@ public class Main {
             }
         }
 
-        startPointArr = new Point[m];
-        for (int i = 0; i < m; ++i) {
+        startPointArr = new Point[k];
+        for (int i = 0; i < k; ++i) {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken()) - 1;
             int y = Integer.parseInt(st.nextToken()) - 1;
@@ -53,6 +53,7 @@ public class Main {
 
         int bestCount = -1;
         findCombination(0, 0);
+        // System.out.println(startPointArr.length);
         for (ArrayList<Integer> comb : combinationList) {
             visited = new boolean[n][n];
             setZero(comb);

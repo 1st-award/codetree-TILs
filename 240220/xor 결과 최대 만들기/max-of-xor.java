@@ -7,6 +7,7 @@ public class Main {
     private static int n, m;
     private static int maxXOR;
     private static ArrayList<Integer> combination = new ArrayList<>();
+    private static int[] board;
 
     public static void main(String[] args) throws IOException {
         // 여기에 코드를 작성해주세요.
@@ -15,8 +16,13 @@ public class Main {
 
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-        findCombination(1, 0);
+        board = new int[n];
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; ++i) {
+            board[i] = Integer.parseInt(st.nextToken());
+        }
 
+        findCombination(1, 0);
         System.out.println(maxXOR);
     }
 
@@ -36,7 +42,7 @@ public class Main {
             return;
         }
 
-        combination.add(currNum);
+        combination.add(board[currNum - 1]);
         findCombination(currNum + 1, cnt + 1);
         combination.remove(combination.size() - 1);
 

@@ -1,26 +1,27 @@
 import java.io.*;
 import java.lang.*;
 import java.util.*;
+import java.math.*;
 
 public class Main {
-    private final static long MOD = 1000000007;
+    private final static BigInteger MOD = new BigInteger("1000000007");
     private static int n;
-    private static ArrayList<Long> memo = new ArrayList<>();
+    private static ArrayList<BigInteger> memo = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         // 여기에 코드를 작성해주세요.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
 
-        memo.add((long)0);
-        memo.add((long)2);
-        memo.add((long)7);
-        memo.add((long)22);
+        memo.add(new BigInteger("0"));
+        memo.add(new BigInteger("2"));
+        memo.add(new BigInteger("7"));
+        memo.add(new BigInteger("22"));
         
         for (int i = 4; i <= n; ++i) {
-            memo.add(((3 * memo.get(i - 1)) + memo.get(i - 2) - memo.get(i - 3)) % MOD);
+            memo.add(memo.get(i - 1).multiply(new BigInteger("3")).add(memo.get(i - 2)).subtract(memo.get(i - 3)));
         }
 
-        System.out.println(memo.get(n));
+        System.out.println(memo.get(n).remainder(MOD));
     }
 }

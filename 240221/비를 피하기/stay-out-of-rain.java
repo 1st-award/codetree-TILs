@@ -71,7 +71,7 @@ public class Main {
 
     private static boolean canGo(int x, int y) {
         if (isOutOfRange(x, y)) return false;
-        else if (board[x][y] == BLOCK || visited[x][y] == true)  return false;
+        else if (board[x][y] == BLOCK || board[x][y] == SAFE_PLACE || visited[x][y] == true)  return false;
         else return true;
     }
 

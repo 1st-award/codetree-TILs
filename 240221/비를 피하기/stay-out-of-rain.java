@@ -16,12 +16,10 @@ public class Main {
     private final static int SAFE_PLACE = 3;
     private static int n, h, m;
     private static int[][] board;
-    private static int[][] answer;
-    private static int[][] boardMoveCount;
-    private static boolean[][] visited;
     private static ArrayList<Point> startPointList = new ArrayList<>();
-    private static ArrayList<Point> endPointList = new ArrayList<>();
     private static Queue<Point> queue = new LinkedList<>();
+    private static boolean[][] visited;
+    private static int[][] boardMoveCount;
 
     public static void main(String[] args) throws IOException {
         // 여기에 코드를 작성해주세요.
@@ -33,41 +31,35 @@ public class Main {
         m = Integer.parseInt(st.nextToken());
 
         board = new int[n][n];
-        answer = new int[n][n];
         for (int i = 0; i < n; ++i) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < n; ++j) {
                 board[i][j] = Integer.parseInt(st.nextToken());
-                if (board[i][j] == PERSON) {
+                if (board[i][j] == SAFE_PLACE) {
                     startPointList.add(new Point(i, j));
-                } else if (board[i][j] == SAFE_PLACE) {
-                    endPointList.add(new Point(i, j));
                 }
             }
         }
 
+        boardMoveCount = new int[n][n];
+        visited = new boolean[n][n];
         for (Point startPoint : startPointList) {
-            queue.clear();
             queue.add(startPoint);
-            boardMoveCount = new int[n][n];
-            visited = new boolean[n][n];
-            BFS(startPoint);
-
-            int minMoveCount = n * n;
-            for (Point endPoint : endPointList) {
-                if (boardMoveCount[endPoint.x][endPoint.y] == 0)    continue;
-                minMoveCount = Math.min(minMoveCount, boardMoveCount[endPoint.x][endPoint.y]);
-            }
-            if (minMoveCount == n * n) {
-                answer[startPoint.x][startPoint.y] = -1;
-            } else {
-                answer[startPoint.x][startPoint.y] = minMoveCount;
-            }
         }
+        BFS();
 
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                System.out.print(answer[i][j] + " ");
+                if (board[i][j] != PERSON) {
+                    System.out.print(0 + " ");
+                } else {
+                    if (visited[i][j] == false) {
+                        System.out.print(-1 + " ");
+                    } else {
+                        System.out.print(boardMoveCount[i][j] + " ");
+                    }
+                    
+                }
             }
             System.out.println();
         }
@@ -83,7 +75,7 @@ public class Main {
         else return true;
     }
 
-    private static void BFS(Point startPoint) {
+    private static void BFS() {
         int[] dx = new int[]{-1, 1, 0, 0};
         int[] dy = new int[]{0, 0, -1, 1};
 

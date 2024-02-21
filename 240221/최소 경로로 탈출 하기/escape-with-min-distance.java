@@ -33,10 +33,15 @@ public class Main {
                 board[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-
+        
         queue.add(new Point(0, 0));
         BFS();
-        System.out.println(boardMoveCount[n-1][m-1]);
+        
+        if (visited[n-1][m-1] == false) {
+            System.out.println(-1);
+        } else {
+            System.out.println(boardMoveCount[n-1][m-1]);
+        }
     }
 
     private static boolean isOutOfRange(int x, int y) {

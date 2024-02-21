@@ -20,6 +20,7 @@ class Combination {
     }
 
     public static void findCombination(int currNum, int cnt) {
+        if (cnt > m)  return;
         if (currNum == n) {
             if (cnt == m) {
                 save();

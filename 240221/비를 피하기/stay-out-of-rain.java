@@ -55,9 +55,10 @@ public class Main {
 
             int minMoveCount = n * n;
             for (Point endPoint : endPointList) {
+                if (boardMoveCount[endPoint.x][endPoint.y] == 0)    continue;
                 minMoveCount = Math.min(minMoveCount, boardMoveCount[endPoint.x][endPoint.y]);
             }
-            if (minMoveCount == 0) {
+            if (minMoveCount == n * n) {
                 answer[startPoint.x][startPoint.y] = -1;
             } else {
                 answer[startPoint.x][startPoint.y] = minMoveCount;

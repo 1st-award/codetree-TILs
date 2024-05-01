@@ -9,9 +9,9 @@ public class Main {
 
         if (middleScore >= 90) {
             if (finalScore >= 95) {
-                System.out.println(10);
+                System.out.println(100000);
             } else if (finalScore >= 90) {
-                System.out.println(5);
+                System.out.println(50000);
             } else {
                 System.out.println(0);
             }

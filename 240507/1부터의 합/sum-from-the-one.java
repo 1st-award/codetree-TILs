@@ -9,7 +9,7 @@ public class Main {
 
         for (int i = 1; i < 101; ++i) {
             if (sum + i >= n) {
-                System.out.println(sum);
+                System.out.println(i);
                 break;
             }
             sum += i;

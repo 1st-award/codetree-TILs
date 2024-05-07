@@ -10,7 +10,7 @@ public class Main {
         while (true) {
             int age = sc.nextInt();
 
-            if (age % 20 < 10) {
+            if (age / 10 == 2) {
                 sum += age;
                 cnt += 1;
             }

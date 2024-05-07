@@ -7,10 +7,10 @@ public class Main {
         int n = sc.nextInt();
         int i = 1;
 
-        while (n / i > 1) {
+        while (n > 1) {
             i += 1;
             n /= i;
         }
-        System.out.println(i + 1);
+        System.out.println(i);
     }
 }

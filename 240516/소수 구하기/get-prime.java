@@ -6,16 +6,17 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        for (int i = 1; i <= n; ++i) {
-            int tmpCnt = 0;
+        for (int i = 2; i <= n; ++i) {
+            boolean isPass = true;
 
             for (int j = 2; j < i; ++j) {
                 if (i % j == 0) {
+                    isPass = false;
                     break;
                 }
             }
 
-            if (tmpCnt == 0) {
+            if (isPass) {
                 System.out.print(i + " ");
             }
         }

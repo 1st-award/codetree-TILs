@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    private final static int INT_MIN = Integer.MAX_VALUE;
+    private final static int INT_MIN = Integer.MIN_VALUE;
 
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
@@ -13,8 +13,8 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        int max1 = MAX_VALUE;
-        int max2 = MAX_VALUE;
+        int max1 = INT_MIN;
+        int max2 = INT_MIN;
         for (int i = 0; i < n; ++i) {
             if (arr[i] > max1) {
                 max1 = arr[i];

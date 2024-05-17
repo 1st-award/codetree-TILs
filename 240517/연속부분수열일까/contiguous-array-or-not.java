@@ -17,7 +17,7 @@ public class Main {
 
 
         boolean allPass = false;
-        for (int i = 0; i < n1Size; ++i) {
+        for (int i = 0; i <= n1Size - n2Size; ++i) {
             boolean isPass = true;
 
             for (int j = 0; j < n2Size; ++j) {

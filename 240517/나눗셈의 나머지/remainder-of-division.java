@@ -8,7 +8,7 @@ public class Main {
         int b = sc.nextInt();
         int[] counter = new int[b];
 
-        while (a > 2) {
+        while (a > 1) {
             counter[a % b] += 1;
             a /= b;
         }

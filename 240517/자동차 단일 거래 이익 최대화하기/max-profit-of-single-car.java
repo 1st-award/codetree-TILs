@@ -11,23 +11,16 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        int min = arr[0];
-        int minIdx = 0;
-        for (int i = 1; i < n; ++i) {
-            if (min > arr[i]) {
-                min = arr[i];
-                minIdx = i;
+        int max = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                int benefit = arr[j] - arr[i];
+                if (benefit > 0 && max < benefit) {
+                    max = benefit;
+                }
             }
         }
 
-        int max = arr[minIdx];
-        for (int i = minIdx; i < n; ++i) {
-            if (max < arr[i]) {
-                max = arr[i];
-            }
-        }
-
-        System.out.println(max - arr[minIdx]);
-
+        System.out.println(max);
     }
 }

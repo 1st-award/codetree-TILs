@@ -28,6 +28,7 @@ public class Main {
         }
 
         buffer = "";
+        isPass = false;
         for (int i = 0; i < B.length(); ++i) {
 
             char chr = B.charAt(i);

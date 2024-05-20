@@ -7,6 +7,6 @@ public class Main {
         String str = sc.next();
         String find = sc.next();
 
-        System.out.println(str.indexOf(find));
+        System.out.println(str.indexOf(find) == -1 ? "No" : str.indexOf(find));
     }
 }
